@@ -1,16 +1,22 @@
 package com.innowise.apigateway.config;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import java.util.List;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.annotation.Validated;
 
-@Configuration
+/**
+ * Configuration properties for JWT token validation.
+ */
+@Validated
 @ConfigurationProperties(prefix = "jwt")
-@Getter
-@Setter
-public class JwtConfig {
-        private String secret;
-        private long accessExpiration;
-        private long refreshExpiration;
+public record JwtConfig(
+
+        @NotBlank
+        String secret,
+
+        @NotEmpty
+        List<String> whitelist
+) {
 }
