@@ -9,10 +9,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import javax.crypto.SecretKey;
 
+@Service
 public class JwtServiceImpl implements JwtService {
     private final JwtConfig jwtConfig;
     private SecretKey secretKey;
