@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
  * Configuration properties for JWT token validation.
  */
 @Validated
-@ConfigurationProperties(prefix = "jwt")
+@ConfigurationProperties(prefix = "app.jwt")
 public record JwtConfig(
 
         @NotBlank
