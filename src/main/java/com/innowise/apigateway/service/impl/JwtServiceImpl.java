@@ -5,6 +5,7 @@ import com.innowise.apigateway.exception.InvalidTokenException;
 import com.innowise.apigateway.model.JwtClaim;
 import com.innowise.apigateway.service.JwtService;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -23,7 +24,7 @@ public class JwtServiceImpl implements JwtService {
         this.jwtConfig= jwtConfig;
     }
     @PostConstruct
-    private void init(){
+    void init(){
         byte[] keyBytes = Decoders.BASE64.decode(jwtConfig.secret());
         this.secretKey = Keys.hmacShaKeyFor(keyBytes);
     }
@@ -31,7 +32,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public Mono<JwtClaim> validateAndExtract(String token){
         return Mono.fromCallable(() -> parseToken(token))
-                .onErrorMap(exception -> new InvalidTokenException("Invalid or expired token"));
+                .onErrorMap(e-> e instanceof JwtException, e -> new InvalidTokenException("Invalid or expired token"));
         }
     private JwtClaim parseToken(String token){
         Claims claims = Jwts.parser()
