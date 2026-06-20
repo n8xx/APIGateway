@@ -1,4 +1,4 @@
-package com.innowise.apigateway.model;
+package com.innowise.apigateway.dto.output;
 
 import java.time.Instant;
 /**

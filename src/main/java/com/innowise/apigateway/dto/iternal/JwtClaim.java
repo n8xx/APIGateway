@@ -1,4 +1,4 @@
-package com.innowise.apigateway.model;
+package com.innowise.apigateway.dto.iternal;
 /**
  * Represents extracted claims from a validated JWT token.
  *

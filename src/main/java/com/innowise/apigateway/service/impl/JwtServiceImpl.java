@@ -2,7 +2,7 @@ package com.innowise.apigateway.service.impl;
 
 import com.innowise.apigateway.config.JwtConfig;
 import com.innowise.apigateway.exception.InvalidTokenException;
-import com.innowise.apigateway.model.JwtClaim;
+import com.innowise.apigateway.dto.iternal.JwtClaim;
 import com.innowise.apigateway.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

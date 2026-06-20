@@ -1,7 +1,7 @@
 package com.innowise.apigateway.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.innowise.apigateway.model.ErrorResponse;
+import com.innowise.apigateway.dto.output.ErrorResponse;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;

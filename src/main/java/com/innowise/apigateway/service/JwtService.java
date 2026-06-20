@@ -1,7 +1,7 @@
 package com.innowise.apigateway.service;
 
 
-import com.innowise.apigateway.model.JwtClaim;
+import com.innowise.apigateway.dto.iternal.JwtClaim;
 import reactor.core.publisher.Mono;
 
 /**
